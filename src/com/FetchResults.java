@@ -23,9 +23,9 @@ public class FetchResults {
 		EmployeeDAO dao = new EmployeeDAO();
 		HashMap<String, EmployeeDO> map = new HashMap<String, EmployeeDO>();
 		try {
-			List<EmployeeDO> list = dao.joinTableEmployeeSalary();
-			for(EmployeeDO e : list){
-				update(e,map);
+			List<EmployeeDO> emplist = dao.joinTableEmployeeSalary();
+			for(EmployeeDO emp : emplist){
+				update(emp,map);
 			}
 		} catch (SQLException e) {
 			//  log the errors
