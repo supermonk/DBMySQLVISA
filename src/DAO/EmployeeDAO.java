@@ -34,11 +34,10 @@ public class EmployeeDAO {
 	 * @throws Exception
 	 */
 	public List<EmployeeDO> joinTableEmployeeSalary() throws SQLException,Exception{
-		Connection mysqlConn = new MYSQLConnection().getConnection();
 		PreparedStatement stmt = null;
-		List<EmployeeDO> list = null;
+		List<EmployeeDO> list = new ArrayList<EmployeeDO>();
+		Connection mysqlConn = new MYSQLConnection().getConnection();
 		try{
-			list = new ArrayList<EmployeeDO>();
 			stmt = mysqlConn.prepareStatement(JOINES);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()){
