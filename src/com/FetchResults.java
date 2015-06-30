@@ -10,11 +10,15 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import DAO.EmployeeDAO;
 import DO.EmployeeDO;
 
 public class FetchResults {
-
+	
+	static final Logger  logger =  Logger.getLogger(FetchResults.class);
+	
 	/**
 	 * 
 	 * @return Map of Highest Salaried employee per Department
@@ -29,10 +33,10 @@ public class FetchResults {
 			}
 		} catch (SQLException e) {
 			//  log the errors
-			e.printStackTrace();
+			logger.debug(e.getLocalizedMessage());
 		} catch (Exception e) {
 			//  log the errors
-			e.printStackTrace();
+			logger.debug(e.getLocalizedMessage());
 		}
 
 		return map;
