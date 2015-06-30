@@ -22,10 +22,10 @@ import DO.EmployeeDO;
  */
 public class EmployeeDAO {
 
-	private static String joinES = "SELECT EMPLOYEE.EMPLOYEEID, NAME, DEPT , SALARY.SALARY"
+	private static final String JOINES = "SELECT EMPLOYEE.EMPLOYEEID, NAME, DEPT , SALARY.SALARY"
 			+ " FROM EMPLOYEE INNER JOIN SALARY on EMPLOYEE.EMPLOYEEID = SALARY.EMPLOYEEID";
 
-	private static String addEMP = "INSERT INTO EMPLOYEE (NAME,DEPT,SALARY)VALUES(?,?,?)";
+	private static final String ADDEMP = "INSERT INTO EMPLOYEE (NAME,DEPT,SALARY)VALUES(?,?,?)";
 
 	/**
 	 * 
@@ -38,8 +38,8 @@ public class EmployeeDAO {
 		PreparedStatement stmt = null;
 		List<EmployeeDO> list = null;
 		try{
-			stmt = mysqlConn.prepareStatement(joinES);
-			ResultSet rs = stmt.executeQuery(joinES);
+			stmt = mysqlConn.prepareStatement(JOINES);
+			ResultSet rs = stmt.executeQuery();
 			list = new ArrayList<EmployeeDO>();
 			while(rs.next()){
 				EmployeeDO emp = new EmployeeDO(rs.getLong("employeeid"),rs.getString("name"),rs.getString("dept"),rs.getDouble("salary"));
@@ -70,11 +70,12 @@ public class EmployeeDAO {
 		PreparedStatement stmt = null;
 
 		try{
-			stmt = mysqlConn.prepareStatement(addEMP);
+			stmt = mysqlConn.prepareStatement(ADDEMP);
 			stmt.setString (2, emp.getName());
 			stmt.setString (3, emp.getDept());
 			stmt.setDouble(4, emp.getSalary());
-			stmt.executeQuery(addEMP);
+			stmt.executeUpdate();
+			 
 
 		}catch(SQLException se){
 			throw se;
