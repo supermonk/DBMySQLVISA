@@ -4,12 +4,12 @@
  *	@author narendrabidari
  * 	Add description of file
  */
-package DAO;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import Interface.Connections;
+import com.Interface.Connections;
 
 public class MYSQLConnection implements Connections {
 

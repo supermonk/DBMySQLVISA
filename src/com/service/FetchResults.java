@@ -13,7 +13,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.DO.EmployeeDO;
-import com.db.dao.EmployeeDAO;
+import com.dao.EmployeeDAO;
 
 public class FetchResults {
 	

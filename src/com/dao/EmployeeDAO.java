@@ -3,7 +3,7 @@
  *	Created on Jun 29, 2015, 8:07:19 PM with @version 1.0
  *	@author narendrabidari
  */
-package DAO;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import DO.EmployeeDO;
+import com.DO.EmployeeDO;
 
 /**
  * 
