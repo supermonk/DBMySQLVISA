@@ -22,13 +22,14 @@ public class MYSQLConnection implements Connections {
 	public static final String password = "root";
 	//establish the  connection
 	@Override
-	public Connection getConnection() {
+	public Connection getConnection() throws Exception {
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager.getConnection(url+dbName,userName,password);
 		} catch (Exception e) {
 			// log
 			System.out.println("Unable to Connect to server");
+			throw e;
 		}
 		return conn;
 		// 		If we have to do the pooling way.
