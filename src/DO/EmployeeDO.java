@@ -10,6 +10,9 @@ public class EmployeeDO {
 	private long employeeid;
 	private String name;
 	private String dept;
+	/**
+	 * To store the max salary
+	 */
 	private double salary;
 
 	public EmployeeDO(long employeeid, String name, String dept){
