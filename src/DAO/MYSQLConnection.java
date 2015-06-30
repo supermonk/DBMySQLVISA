@@ -27,7 +27,7 @@ public class MYSQLConnection implements Connections {
 			Class.forName(driver).newInstance();
 			conn = DriverManager.getConnection(url+dbName,userName,password);
 		} catch (Exception e) {
-			System.out.println("Unable to Connect to server");
+			// log
 			System.out.println("Unable to Connect to server");
 		}
 		return conn;
