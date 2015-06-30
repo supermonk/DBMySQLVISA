@@ -71,11 +71,10 @@ public class EmployeeDAO {
 
 		try{
 			stmt = mysqlConn.prepareStatement(ADDEMP);
-			stmt.setString (2, emp.getName());
-			stmt.setString (3, emp.getDept());
-			stmt.setDouble(4, emp.getSalary());
+			stmt.setString (1, emp.getName());
+			stmt.setString (2, emp.getDept());
+			stmt.setDouble(3, emp.getSalary());
 			stmt.executeUpdate();
-			 
 
 		}catch(SQLException se){
 			throw se;
