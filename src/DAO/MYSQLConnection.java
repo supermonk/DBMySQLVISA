@@ -20,24 +20,25 @@ public class MYSQLConnection implements Connections {
 	public static final String driver = "com.mysql.jdbc.Driver";
 	public static final String userName = "root";
 	public static final String password = "root";
- 
+	//establish the  connection
 	@Override
 	public Connection getConnection() {
-		 try {
-//			 MysqlDataSource dataSource = new MysqlDataSource();
-//			 dataSource.setUrl(url);
-//			 dataSource.setDatabaseName(mySQL);
-//			 dataSource.setUser(userName);
-//			 dataSource.setPassword(password);
-			 
-	         //establish the  connection
-	         Class.forName(driver).newInstance();
-	         conn = DriverManager.getConnection(url+dbName,userName,password);
-	     } catch (Exception e) {
-	         System.out.println("Unable to Connect to server");
-	          System.out.println("Unable to Connect to server");
-	     }
-		 return conn;
+		try {
+			Class.forName(driver).newInstance();
+			conn = DriverManager.getConnection(url+dbName,userName,password);
+		} catch (Exception e) {
+			System.out.println("Unable to Connect to server");
+			System.out.println("Unable to Connect to server");
+		}
+		return conn;
+		// 		If we have to do the pooling way.
+		//		 MysqlDataSource dataSource = new MysqlDataSource();
+		//		 dataSource.setUrl(url);
+		//		 dataSource.setDatabaseName(mySQL);
+		//		 dataSource.setUser(userName);
+		//		 dataSource.setPassword(password);
+
+		
 	}
 
 }
