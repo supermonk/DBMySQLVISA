@@ -38,9 +38,9 @@ public class EmployeeDAO {
 		PreparedStatement stmt = null;
 		List<EmployeeDO> list = null;
 		try{
+			list = new ArrayList<EmployeeDO>();
 			stmt = mysqlConn.prepareStatement(JOINES);
 			ResultSet rs = stmt.executeQuery();
-			list = new ArrayList<EmployeeDO>();
 			while(rs.next()){
 				EmployeeDO emp = new EmployeeDO(rs.getLong("employeeid"),rs.getString("name"),rs.getString("dept"),rs.getDouble("salary"));
 				list.add(emp);
