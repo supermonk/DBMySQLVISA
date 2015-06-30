@@ -33,10 +33,10 @@ public class FetchResults {
 			}
 		} catch (SQLException e) {
 			//  log the errors
-			logger.debug(e.getLocalizedMessage());
+			logger.debug(e.getLocalizedMessage(),e);
 		} catch (Exception e) {
 			//  log the errors
-			logger.debug(e.getLocalizedMessage());
+			logger.debug(e.getLocalizedMessage(),e);
 		}
 
 		return map;
